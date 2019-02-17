@@ -13,6 +13,12 @@
 * 两年后重新再打开这个项目，由于electron的版本升级了好几版，部分electron的api也变动了。所以又经过一段时间的修改才让项目重新运行，当年开发完毕有专门的人测试，现在只能依靠自己测试，不免有些问题，如遇问题请联系我.
 * <span style="color:red">[electron](https://electronjs.org/)是神器。对于一般的pc软件开发，用它绝对ok</span>
 
+
+
+### 预览
+![懒虫微信云客服](https://github.com/shaobenbin/lazybones-wechat/tree/master/assets/example.png) 
+
+
 ### 功能部分 
 1. 微信多开
 2. 微信名字复制，我们的客服同学经常需要这个功能，所以加了一个按钮快捷点击
@@ -46,7 +52,7 @@
 2. linux的64位打包: npm run build:linux64
 
 ### mac下编译的包
->> mac下想直接用的话，就在项目的dist下面有一个lazybones-darwin-x64.zip，解压后里面的双击lazybones.app应该可以直接运行.
+>> 稍等我放网盘
 
 
 
