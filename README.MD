@@ -16,7 +16,7 @@
 
 
 ### 预览
-![懒虫微信云客服](https://github.com/shaobenbin/lazybones-wechat/tree/master/assets/example.png) 
+![懒虫微信云客服](http://pmv4hdpiu.bkt.clouddn.com/lazy-screenshot-01.png) 
 
 
 ### 功能部分 
@@ -38,6 +38,9 @@
 
 
 ### 本地运行
+
+>> 以mac为例，其它系统未测试.
+
 1. 安装electron：npm install -g electron
 2. 安装打包工具：npm install -g asar
 3. 安装打包工具：npm install -g electron-packager
