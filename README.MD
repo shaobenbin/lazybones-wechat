@@ -55,7 +55,8 @@
 2. linux的64位打包: npm run build:linux64
 
 ### mac下编译的包
->> 稍等我放网盘
+
+1. mac版本: 链接: https://pan.baidu.com/s/1JLwAYUX00LywBN8Ok-MWiQ 提取码: i5jy 复制这段内容后打开百度网盘手机App，操作更方便哦
 
 
 
