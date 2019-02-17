@@ -1,0 +1,46 @@
+{
+  "name": "lazybones",
+  "version": "1.0.0",
+  "description": "lazybones",
+  "productName": "lazybones",
+  "author": "GitHub",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:osx64": "./scripts/build.sh darwin x64",
+    "build:linux64": "./scripts/build.sh linux x64",
+    "build:win64": "./scripts/build.sh win32 x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron/electron-quick-start.git"
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial"
+  ],
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/electron/electron-quick-start/issues"
+  },
+  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "devDependencies": {
+    "asar": "^0.14.6",
+    "electron": "^4.0.4",
+    "electron-packager": "^13.0.1",
+    "electron-prebuilt": "^1.2.0",
+    "grunt": "^1.0.1",
+    "grunt-electron-installer": "^2.1.0"
+  },
+  "dependencies": {
+    "crypto": "0.0.3",
+    "electron-json-storage": "^2.1.1",
+    "handlebars": "^4.0.5",
+    "memory-cache": "^0.1.6",
+    "node-uuid": "^1.4.8",
+    "pinyin": "^2.7.1",
+    "request": "^2.74.0"
+  }
+}

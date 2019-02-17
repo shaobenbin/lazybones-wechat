@@ -1,0 +1,41 @@
+html, body, section, button, form{
+    padding: 0;
+    margin: 0;
+}
+
+/*闭合浮动*/
+.clearfix:after{
+    content: '\200B';
+    display: block;
+    height: 0;
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: inherit;
+}
+a:visited{
+    color: inherit;
+}
+
+/*出现错误提示*/
+.error{
+    position: relative;
+}
+.error::after{
+    position: absolute;
+    content: url("../images/login/common_icon_wrong.png");
+}
+.error input {
+    border-color: #f23737;
+    outline: none;
+}
+div.error span{
+    display: block;
+}
+/*出现错误提示*/

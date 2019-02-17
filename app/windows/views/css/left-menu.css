@@ -1,0 +1,154 @@
+.sg_menu_content {
+  position: fixed;
+  top:0;
+  left: 0;
+  width:170px;
+  border-radius: 5px;
+  background: #262A34 none repeat scroll 0 0;
+  height:100%;
+}
+
+#hack-wx-left-menu {
+  overflow:auto;
+  height:calc(100% - 200px);
+}
+
+.sg_menu_title {
+  border-bottom: 1px solid #373C47;
+  border-top: 1px solid #373c47;
+  padding-left: 12px;
+  font-size: 11px;
+  margin-top: 49px;
+  height: 29px;
+  padding-top: 10px;
+  color: #858890;
+  margin-left: 0px;
+}
+
+.sg_menu_title span {
+  float: right;
+  padding-right: 8px;
+}
+
+.sg_menu_content .sg_menu_ul{
+  margin-top:18px;
+}
+
+.sg_menu_ul li{
+  height: 33px;
+  padding-top: 0px;
+  padding-left: 12px;
+  margin-left: -40px;
+  color: #C0C5CE;
+  font-family: "Microsoft YaHei" ! important;
+}
+
+.sg_menu_ul .active {
+  background: #2E3238;
+  border-left: 2px solid #FDCC09;
+  color : #FDCC09;
+}
+
+.sg_menu_ul li:hover {
+  background: #2E3238;
+  color : #FDCC09;
+}
+
+.sg_menu_ul li:hover img {
+  display:block;
+}
+
+.sg_menu_account {
+  display : inline-block;
+  font-size : 14px;
+  font-weight : 400;
+  overflow : hidden;
+  text-decoration : none;
+  text-overflow : ellipsis;
+  vertical-align : top;
+  white-space : nowrap;
+  width : 100px;
+  margin-top:5px;
+  word-wrap : normal;
+  cursor:pointer;
+}
+
+.sg_del_img {
+  width: 16px;
+  float: right;
+  margin-top: 8px;
+  margin-right: 13px;
+  cursor:pointer;
+  display:none;
+}
+
+.unread_count {
+  padding: 0px 7px;
+  text-align: center;
+  background-color: #e60012;
+  margin-top: 6px;
+  color: #fff;
+  font-size: 10px;
+  font-style: normal;
+  -moz-border-radius: 40px;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  margin-left: 2px;
+  display:none;
+}
+
+.sg_menu_content .add_wechat_account{
+  border-top: 1px solid #373B47;
+  width:100%;
+  height:80px;
+  position: absolute;
+  bottom: 0;
+  cursor:pointer;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.sg_menu_content .add_wechat_account .add_wechat_account_btn {
+  margin-top: 25px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 30px;
+  width: 100px;
+  border-radius: 0px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  background-image: url('../images/left_menu/add-wx-01.png');
+}
+
+.sg_menu_content .add_wechat_account .add_wechat_account_btn:hover {
+  background-image: url('../images/left_menu/add-wx-02.png');
+}
+
+::-webkit-scrollbar
+{
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track-piece
+{
+    background-color: #CCCCCC;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical
+{
+    height: 5px;
+    background-color: #999999;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal
+{
+    width: 5px;
+    background-color: #CCCCCC;
+    -webkit-border-radius: 6px;
+}

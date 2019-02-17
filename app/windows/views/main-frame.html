@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>微信web客服系统</title>
+      <style>html { overflow-x: hidden; overflow-y: hidden; -webkit-user-select: none;}</style>
+      <link rel="stylesheet" href="./css/left-menu.css">
+      <link rel="stylesheet" href="./css/top-menu.css">
+      <link rel="stylesheet" href="./css/quick-replay.css">
+      <link rel="stylesheet" href="./css/continer.css">
+      <script src="../../external/jquery-1.8.1.min.js"></script>
+      <script src="../../external/jquery.bpopup.min.js"></script>
+      <script src="../../external/angular-1.5.8.min.js"></script>
+      <script src="../inject/js/wechat-inject.js"></script>
+      <script src="../db/database.js"></script>
+      <script src="../handlers/messages.js"></script>
+      <script src="../common.js"></script>
+      <script src="../controllers/app-main.js"></script>
+      <script src="../controllers/app-factory.js"></script>
+      <script src="../controllers/app-topMenu.js"></script>
+      <script src="../controllers/app-leftMenu.js"></script>
+      <script src="../controllers/app-container.js"></script>
+  </head>
+    <body ng-app="mainApp" >
+      <!-- top-menu -->
+      <div id="sg_float_banner" frame-top-menu>
+        <div style="display:inline;float:left;margin-left:30px;margin-top:14px;"><img style="height: 30px;" src = "./images/top_menu/nav-logo.png" /></div>
+        <div style="display:inline;float:left;margin-left: 22px;max-width=50%;height=52px" >
+          <nav>
+            <ul>
+              <li id="notice-info-marquee">
+                <a href="#" style="color:#eeb900;height: 40px;"><marquee scrollAmount=1 direction="left"></marquee></a>
+              <li>
+            </ul>
+          </nav>
+        </div>
+        <div class="right-menu">
+            <nav>
+              <ul>
+                  <!--
+                  <li><a href="#">联系我们</a>
+                    <ul style="margin-left: 0;background-color:#fffff">
+                      <li>
+                        <p style="margin: 0;height: 30px;line-height: 30px;">服务与支持</p>
+                        <img style="width:130px;" src="http://sgec.cn/static/images/ic_sg_wx_ask.jpg" />
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#">{{userName}}</a>
+                      <ul>
+                          <li>
+                          <div style="margin:-10 0 0 0;width:160px;height:90px;background-image:url('./images/top_menu/account-panel.png');margin-top: -10px;">
+                            <div style="display:inline;width:80px;margin-left: auto;margin-right: auto;TEXT-ALIGN: center;float:left;">
+                              <div style="color:#FDCB09;font-size:16px;height: 30px;padding-top: 17px;">{{expireTime}}天</div>
+                              <div style="color:#848890;font-size:12px;">使用期限</div>
+                            </div>
+                            <div style="display: inline;width: 1px;margin-left: auto;margin-right: auto;TEXT-ALIGN: center;float: left;margin-top: 30px;margin-bottom: 30px;background-color: #848890;height: 30px;border-left: 1px solid #848890;">
+                            </div>
+                            <div style="display:inline;width:78px;margin-left: auto;margin-right: auto;TEXT-ALIGN: center;float:left;">
+                              <div style="color:#FDCB09;font-size:16px;height: 30px;padding-top: 17px;">{{maxWx}}台</div>
+                              <div style="color:#848890;font-size:12px;">授权设备</div>
+                            </div>
+                          </div>
+                          </li>
+                      </ul>
+                  </li> -->
+
+                  <li>
+                    <a href="#"><img class="setting" src="./images/top_menu/setting.png" /></a>
+                      <ul class="setting-sub-menu" style="line-height: 30px;background-color: #f8f8f8; border: 1px solid #e9e9e9;border-radius: 5px;">
+                        <li class="setting-sub-menu-title">设置</li>
+                        <li ng-click="showQuickReplySettingDialog()" class="setting-sub-menu-line kjhf-setting-a">
+                            <img style="vertical-align:text-bottom"  src="./images/top_menu/shortcut-reply-line-logo.png" />
+                            <span>自定义快捷键回复</span>
+                        </li>
+                        <li class="setting-sub-menu-line show_version_a_jd" ng-click="showVersion()">
+                            <img style=""  src="./images/top_menu/shortcut-reply-line-logo.png" />
+                            <span>版本查看</span>
+                        </li>
+                        <!-- <li ng-click="openWebviewDev()" class="setting-sub-menu-line">
+                            <img style="vertical-align:text-bottom"  src="" />
+                            <span>webview调试</span>
+                        </li>
+                        <li ng-click="openWindowDev()" class="setting-sub-menu-line">
+                            <img style="vertical-align:text-bottom"  src="" />
+                            <span>window调试</span>
+                        </li> -->
+                      </ul>
+                  </li>
+              </ul>
+          </nav>
+
+        </div>
+      </div>
+      <div class="kjhf-setting-dialog" ng-show='isQRSettingShow' quick-reply-setting-dialog></div>
+      <div id="popup" style="display:none">
+          <span class="button b-close"><span>X</span></span>
+          <div class="popup-content">
+            <p>当前版本2019.02.17.beta</p>
+            <hr />
+            <b>2019.02.17：</b>
+            <p>1. 开源2019.02.17.beta版</p>
+            <hr />
+          </div>
+      </div>
+      <div id="slideMenu" frame-slide-menu ng-click="openSlideMenu()">
+        <div id="buttonGroup">
+          <img id="backButton" src="./images/top_menu/goback-button.png" ng-class="{showButton:showId!=blankId}"  ng-click="gobackPage()" alt="返回">
+          <img id="refreshButton" src="./images/top_menu/refresh-button.png" ng-click="refreshPage()"  alt="刷新">
+          <img id="stopButton" src="./images/top_menu/stop-button.png" ng-class="{showButton:showId!=blankId}" ng-click="stopPage()"  alt="停止页面">
+          <!-- 酝酿新功能中，准备放在右侧边栏，暂时隐藏 -->
+          <!-- <img id="rightMenuButton" src="./images/top_menu/right-menu.png" ng-click=""  alt="打开右菜单"> -->
+        </div>
+        <img id="pullButton"src="./images/top_menu/pull-button.png"  alt="下拉菜单" />
+      </div>
+
+      <div></div>
+
+      <div class="sg_menu_content" frame-left-menu></div>
+
+      <div class="webview-continer" webview-list></div>
+
+
+
+      <script type="text/ng-template" id="webviewTemplate">
+        <webview src="https://wx.qq.com" autosize="on"  minwidth="0" minheight="0" preload="../inject/js/preload.js"></webview>
+      </script>
+
+      <script type="text/ng-template" id="frameLeftMenu.html">
+        <!-- 左边菜单 -->
+          <div style="height:1px;width:1px;" id="frame-left-menu-reload" ng-click="reloadLeftMenu()"></div>
+          <div class="sg_menu_title" ng-click="reloadLeftMenu()">当前登录<span>{{ accountList.length }}个</span></div>
+          <ul id="hack-wx-left-menu"  class="sg_menu_ul">
+            <li ng-repeat="account in accountList" ng-class="{active:{{ account.webviewId }}==showId}" ng-click="switch(account.webviewId)" ng-dblclick="nextUnreadChat(account.webviewId)">
+              <span href="#" data-id="{{ account.webviewId }}" data-account="{{ account.account }}" class="sg_menu_account accounts" >
+                  {{account.account}}</span><span class="unread_count"></span>
+              <span>
+                <img src="./images/left_menu/delete.png" data-id="`+windowId+`" ng-click="delete(account.webviewId)" alert="注销" class="sg_del_img" />
+              </span>
+            </li>
+          </ul>
+          <div class="add_wechat_account" style = "">
+            <div ng-click="addNew()" class="add_wechat_account_btn"></div>
+          </div>
+      </script>
+
+      <script type="text/ng-template" id="quickReplySettingDialog.html">
+        <div>
+          <!-- 头部操作 -->
+          <div class="title">
+            <span class="text1" ng-click="addNewGroup()"><img src="./images/top_menu/kuaijiefuwu-logo.png" />新增组</span>
+            <span class="text1 update-data-set">自定义快捷回复</span>
+            <span style="margin-left: 87px;"><img class="close-dialog" ng-click="closeDialog()" src="./images/top_menu/close-settings.png"></span>
+          </div>
+
+          <!-- 快捷回复的具体的内容 -->
+          <div class="group-panel">
+            <div class="group" ng-show='is_add_group_show' style="width: 524px">
+        			<div>
+        				<textarea class="quick-reply-content no-border new-quick-reply-group" placeholder="输入新组名" style="height:20px;width:468px;"></textarea>
+                <img class='rightImg' ng-click="delNewGroup($event)" src="./images/top_menu/kuaijiefuwu-del.png" ／>
+                <img class='rightImg' ng-click="saveNewGroup($event)" src="./images/top_menu/quick-reply-save.png" ／>
+        			</div>
+        			<ul>
+        			</ul>
+        		</div>
+
+            <div class="group" ng-repeat="quickReplyGoup in quickReplyGoupList">
+              <!-- 快捷回复的组名 -->
+              <div class="group-title-info" data-uuid="{{ quickReplyGoup.uuid }}">
+                <img data-name='{{ quickReplyGoup.name }}' ng-click="addNewReply($event)" src="./images/top_menu/kuaijiefuwu-logo.png" />
+                {{ quickReplyGoup.name }}
+                <img class='rightImg group-del-img' data-uuid='{{ quickReply.uuid }}' ng-click='delGroup($event)' src="./images/top_menu/kuaijiefuwu-del.png" ／>
+              </div>
+              <ul>
+                <li ng-show='quickReplyGoup.isNewQuickReplyVisible' class="hidden-quick-reply-content">
+                  <img class="rightImg" ng-click='delNewReply($event)' src="./images/top_menu/kuaijiefuwu-del.png" ／>
+                  <img class="rightImg" ng-click='saveNewReply($event)' src="./images/top_menu/quick-reply-save.png" ／>
+                  <textarea class="quick-reply-content no-border new-quick-reply-group" placeholder="输入新组名" style="height:20px;width:444px;"></textarea>
+                </li>
+                <li class="quick-reply-detail" ng-repeat="quickReply in quickReplyGoup.quickReplyList">
+                  <!-- 删除按钮 -->
+                  <img class="rightImg" data-uuid='{{ quickReply.uuid }}' ng-click='delReply($event)' src="./images/top_menu/kuaijiefuwu-del.png" ／>
+                  <span ng-click='copyToChat($event)' data-uuid='{{ quickReply.uuid }}'>{{ quickReply.content }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script language="javascript">
+          var adaptiveHeight = function(a, baserows, maxrows) {
+            var po =  parseInt(a.css('padding-top')) + parseInt(a.css('padding-bottom'));
+            var baseLineHeight = parseInt(a.css('line-height'));
+            var baseHeight = baseLineHeight * baserows;
+            a.height(baseHeight);
+            var scrollval = a[0].scrollHeight;
+            if (scrollval - po >= baseLineHeight * maxrows) {
+              scrollval = baseHeight + baseLineHeight * (maxrows-baserows) + po;
+            }
+            a.height(scrollval - po);
+          };
+          var adaptiveTextarea = function(sel, baserows, maxrows, callback){
+            sel.bind('input propertychange', function(e) {
+              adaptiveHeight($(this), baserows, maxrows);
+              if(callback) callback(e);
+              });
+            adaptiveHeight(sel, baserows, maxrows);
+          };
+          adaptiveTextarea($('.quick-reply-content'), 1, 5);
+        </script>
+
+      </script>
+    </body>
+</html>

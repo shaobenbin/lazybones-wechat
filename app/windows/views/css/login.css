@@ -1,0 +1,134 @@
+section.service-login{
+    background-image: url("../images/login/login_bg.png");
+    width: 410px;
+    height: 560px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#close{
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    float: right;
+    margin-right: 7px;
+    margin-top: 7px;
+    cursor: pointer;
+    color: #d4d5d9;
+    display: none;
+}
+
+
+.service-logo{
+    color: #d4d5d9;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 22px;
+    margin-bottom: 38px;
+}
+
+
+form{
+    text-align: center;
+}
+form div{
+    width: 247px;
+    margin: 0 auto;
+}
+form input{
+    border-radius: 5px;
+    border: 1px solid #9aa3b3;
+    outline: none;
+    background-color: transparent;
+    height: 40px;
+    line-height: 40px;
+    width: 204px;
+    padding-left: 36px;
+    color: #d4d5d9;
+    font-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 11px 11px;
+}
+form span{
+    text-align: center;
+    font-size: 12px;
+    color: #f23737;
+    display: none;
+}
+#input-profile{
+    margin-bottom: 30px;
+    background-image: url("../images/login/login_icon_profile.png");
+}
+#input-password{
+    margin-bottom: 10px;
+    background-image: url("../images/login/login_icon_passwd.png");
+}
+input::-moz-placeholder{
+    color: #d4d5d9;
+    font-size: 14px;
+}
+input::-webkit-input-placeholder{
+    color: #d4d5d9;
+    font-size: 14px;
+}
+input:-ms-input-placeholder{
+    color: #d4d5d9;
+    font-size: 14px;
+}
+
+
+div.div-password{
+    min-height: 84px;
+}
+
+/*出现错误提示*/
+.error::after{
+    right: 10px;
+    top: 14px;
+}
+.div-profile span{
+    margin-top:-20px;
+    padding-bottom: 10px;
+}
+
+.div-password span{
+  padding-bottom: 18px;
+}
+/*出现错误提示*/
+
+form div.button{
+    width: 240px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #f2c200;
+    border-radius: 22px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+div#button-login{
+    color: #262a34;
+    background-color: #f2c200;
+}
+div#button-regist a{
+    color: #f2c200;
+    width: 240px;
+    height: 40px;
+    display: inline-block;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
