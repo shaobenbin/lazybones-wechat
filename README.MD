@@ -16,7 +16,7 @@
 
 
 ### 预览
-![懒虫微信云客服](http://pmv4hdpiu.bkt.clouddn.com/lazy-screenshot-01.png) 
+![懒虫微信云客服](http://pop6g6eyr.bkt.clouddn.com/lazybon-preview-190322.png)
 
 
 ### 功能部分 
